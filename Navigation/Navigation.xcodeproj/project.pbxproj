@@ -148,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				1E17906C298C365C00823C2B /* ProfileViewController.swift */,
+				1EC672D4299FCC2B00FDDECD /* PostTableViewCell.swift */,
 				1E511F1F29D6080C00616631 /* NewData.swift */,
 				1E511F4C29D74CE200616631 /* NetworkService.swift */,
 				1E511F4E29D74D6C00616631 /* NetworkDataFetch.swift */,
@@ -189,7 +190,6 @@
 			children = (
 				1EA0D7EA29A9FE3500B5C349 /* PhotosTableViewCell.swift */,
 				1EDAB5DC29C47297006B0A85 /* CollectionViewCellTableView.swift */,
-				1EC672D4299FCC2B00FDDECD /* PostTableViewCell.swift */,
 				1ECAB12C29AA43EB00070F5C /* PhotosCollectionViewCell.swift */,
 				1EDE2E5F2993F39A00F0FE1A /* ProfileHeaderView.swift */,
 			);

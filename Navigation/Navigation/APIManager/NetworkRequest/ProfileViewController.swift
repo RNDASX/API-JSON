@@ -14,10 +14,6 @@ final class ProfileViewController: UIViewController {
     let networkDataFetcher = NetworkDataFetcher()
     var newData: NewData? = nil
 
-   // var albums = [ItunesAlbum]()
-
-
-
     //MARK: - Add Table View
     private lazy var myTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
@@ -86,13 +82,9 @@ extension ProfileViewController: UITableViewDataSource {
 //            if let model: Modelstar = modelStar[indexPath.section][indexPath.row] as? Modelstar {
                 let cell: PostTableViewCell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier, for: indexPath) as! PostTableViewCell
                 //cell.setupCell(model: model)
-            let track = newData?.results[indexPath.row]
+            guard let track = newData?.results[indexPath.row] else { return UITableViewCell() }
 
-            cell.authorLabel.text = track?.artistName
-            cell.myImageView.image = UIImage(named: "\(track?.artworkUrl60 ?? "")")
-            cell.descriptionLabel.text = track?.collectionCensoredName
-            cell.likesLabel.text = "Likes: \(track?.collectionId ?? 0)"
-            cell.viewsLabel.text = "Views: \(track?.trackId ?? 0)"
+            cell.configurCell(with: track)
                 return cell
             //} else { return UITableViewCell() }
         }

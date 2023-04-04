@@ -73,6 +73,29 @@ final class PostTableViewCell: UITableViewCell {
         fatalError()
     }
     
+
+    func configurCell(with model: Track) {
+        authorLabel.text = model.artistName
+        descriptionLabel.text = model.collectionCensoredName
+        likesLabel.text = " Likes \(model.collectionId ?? 0)"
+        viewsLabel.text = " Views \(model.collectionId ?? 0)"
+
+        DispatchQueue.global().async {
+            guard let urlString = model.artworkUrl60 else { return }
+            guard let imageUrl = URL(string: urlString) else { return }
+            guard let imageData = try? Data(contentsOf: imageUrl) else { return }
+
+            DispatchQueue.main.async {
+                self.myImageView.image = UIImage(data: imageData)
+            }
+        }
+    }
+
+
+
+
+
+
     // MARK: - SetupGestures TapLikeLabelGesture
     private func setupGestures() {
         let tapLikeLabelGesture = UITapGestureRecognizer(target: self, action: #selector(likeAction))

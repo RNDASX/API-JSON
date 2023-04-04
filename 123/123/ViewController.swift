@@ -14,16 +14,14 @@ struct NewData: Decodable {
     var results: [Track]
 
 }
-
-
 struct Track: Decodable {
 
-    var trackName: String
-    var artistName: String // author
-//    var collectionId: Int // likes
-//    var trackId: Int // views
+    var trackName: String?
+    var artistName: String? // author
+    var collectionId: Int? // likes
+    var trackId: Int? // views
     var artworkUrl60: String? // image
-//    var collectionCensoredName: String // description
+    var collectionCensoredName: String? // description
 
 }
 
@@ -32,7 +30,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let urlString = "https://itunes.apple.com/search?term=jack+johnson&limit=25"
+        let urlString = "https://itunes.apple.com/search?term=jack+johnson&limit=95"
 //        request(urlString: urlString) { newData, error in
 //            newData?.results.map({ (track) in
 //                print(track.trackName)
@@ -44,7 +42,7 @@ class ViewController: UIViewController {
 
             case .success(let newData):
                 newData.results.map { track in
-                    print(track.artistName)
+                    print(track)
                 }
             case .failure(let error):
                 print("Error")
@@ -53,7 +51,7 @@ class ViewController: UIViewController {
 
     }
 
-
+//  https://www.youtube.com/watch?v=7H287JaSERk&t=4509s&ab_channel=SwiftBook
 
 
 
